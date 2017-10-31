@@ -100,6 +100,7 @@
 					operator & operation type \\ \hline \hline
 					selection & unary operator \\
 					projection & unary operator \\
+					rename & unary operator \\
 					cartesian product & set \& binary operator \\
 					union & set \& binary operator \\
 					difference & set \& binary operator \\
@@ -111,10 +112,10 @@
 	\begin{enumerate}[label = 2.2.\arabic*]
 		\item %maybe same company test?
 			\textbf{relational algebra}: \\
-			$\pi_{pname}( \rho_{p}(works) \bowtie_{p.cname = b.cname \land p.salary > b.salary}$ \\
+			$\pi_{pname}( \rho_{p}(works) \bowtie_{p.pname = b.pname1 \land p.cname = b.cname \land p.salary > b.salary}$ \\
 			\hspace*{2cm}$ \rho_{b}(works \bowtie_{works.pname = boss.mname} \rho_{pname1\leftarrow pname}(boss) ) )$ \\
 			\textbf{tuple relational calculus}:\\
-			$\{ <w.pname> \mid w \in works \land \exists m \in boss (w.pname = m.pname \land \exists w^\prime \in works ( w^\prime.pname =m.pname \land w.cname = w^\prime.cname \land w.salary > w^\prime.salary ))  \}$ \\
+			$\{ <w.pname> \mid w \in works \land \exists m \in boss (w.pname = m.pname \land \exists w^\prime \in works ( w^\prime.pname =m.mname \land w.cname = w^\prime.cname \land w.salary > w^\prime.salary ))  \}$ \\
 			\textbf{domain relational calculus}: \\
 			$\{ pname \mid \exists cname, salary1, salary2,mname \land works(pname,cname,salary1) \land works(mname, cname, salary2) \land boss(pname, cname) \land salary1 > salary2\}$
 		\item 
